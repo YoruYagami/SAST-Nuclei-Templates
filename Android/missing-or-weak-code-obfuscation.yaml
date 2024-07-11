@@ -2,7 +2,7 @@ id: missing-or-weak-code-obfuscation
 
 info:
   name: Missing or Weak Code Obfuscation
-  author: YourName
+  author: YoruYagami
   severity: high
   description: |
     A reverse engineering process involves analyzing an existing software system 

@@ -1,4 +1,4 @@
-id: adb-backup-enabled
+id: backup-enabled
 
 info:
   name: ADB Backup Enabled

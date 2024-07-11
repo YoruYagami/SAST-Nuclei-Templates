@@ -2,8 +2,8 @@ id: task-hijacking
 
 info:
   name: Task Hijacking
-  author: YourName
-  severity: high
+  author: YoruYagami
+  severity: medium
   description: |
     In the Android platform, a task is a collection of activities with which users interact. By default, they are arranged in a reverse stack, in the order in which each activity is opened: the activity displayed on the screen is referred to as the "foreground," and its task is also referred to as the foreground. Only one foreground activity is visible on the screen at a time.
     Task affinity is an attribute that indicates which task an activity prefers to belong to. By default, all activities of the same app have affinity equal to the application name (qualified with the package).
