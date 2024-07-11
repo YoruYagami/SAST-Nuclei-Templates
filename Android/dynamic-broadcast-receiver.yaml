@@ -1,0 +1,33 @@
+id: dynamic-registered-broadcast-receiver
+
+info:
+  name: Dynamic Registered Broadcast Receiver
+  author: YoruYagami
+  severity: info
+  description: |
+    This template detects dynamic registration of broadcast receivers in Android applications. While dynamic registration is sometimes necessary, it is important to ensure that the broadcast receivers are properly secured to prevent unauthorized access and potential security issues.
+  remediation: |
+    Ensure that dynamically registered broadcast receivers are properly secured and unregister them when no longer needed. Example:
+
+    ```java
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(myReceiver, new IntentFilter("com.example.myapp.MY_ACTION"));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(myReceiver);
+    }
+    ```
+
+file:
+  - extensions:
+      - all
+
+    matchers:
+      - type: word
+        words:
+          - ";->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)"

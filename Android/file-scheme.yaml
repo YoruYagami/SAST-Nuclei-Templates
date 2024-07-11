@@ -1,0 +1,31 @@
+id: file-scheme
+
+info:
+  name: File Scheme Enabled
+  author: YoruYagami
+  severity: info
+  description: |
+    This template detects the presence of the `file` scheme in the Android manifest file. The `file` scheme allows the app to access local files directly. While this is a standard feature, it is important to ensure that proper permissions and security measures are in place to prevent unauthorized access to sensitive files.
+  remediation: |
+    Review the use of the `file` scheme and ensure that access to local files is properly secured. Implement necessary permissions and limit access to only trusted components. Example:
+
+    ```xml
+    <provider
+        android:name=".MyFileProvider"
+        android:authorities="com.example.myapp.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <path-permission
+            android:path="/files"
+            android:readPermission="com.example.myapp.permission.READ_FILES"/>
+    </provider>
+    ```
+
+file:
+  - extensions:
+      - xml
+
+    matchers:
+      - type: word
+        words:
+          - "android:scheme=\"file\""

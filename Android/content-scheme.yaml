@@ -1,0 +1,31 @@
+id: content-scheme
+
+info:
+  name: Content Scheme Enabled
+  author: YoruYagami
+  severity: info
+  description: |
+    This template detects the presence of the `content` scheme in the Android manifest file. The `content` scheme allows the app to access content provided by a `ContentProvider`. While this is a standard feature, it is important to ensure that proper permissions and security measures are in place to protect sensitive data.
+  remediation: |
+    Review the use of the `content` scheme and ensure that the `ContentProvider` is properly secured. Implement necessary permissions and limit access to only trusted components. Example:
+
+    ```xml
+    <provider
+        android:name=".MyContentProvider"
+        android:authorities="com.example.myapp.provider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <path-permission
+            android:path="/secure"
+            android:readPermission="com.example.myapp.permission.READ_SECURE_DATA"/>
+    </provider>
+    ```
+
+file:
+  - extensions:
+      - xml
+
+    matchers:
+      - type: word
+        words:
+          - "android:scheme=\"content\""

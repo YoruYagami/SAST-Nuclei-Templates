@@ -1,0 +1,30 @@
+id: webview-addjavascript-interface
+
+info:
+  name: Webview addJavascript Interface Usage
+  author: YoruYagami
+  severity: info
+  description: |
+    This template detects the use of the `addJavascriptInterface` method in WebView. This method allows JavaScript code to invoke Java methods, which can be a security risk if not properly handled, as it can expose the application to cross-site scripting (XSS) attacks.
+  remediation: |
+    If using `addJavascriptInterface`, ensure that the interface is only added in a secure context and that the exposed methods do not perform sensitive actions or expose sensitive data. Example:
+
+    ```java
+    webView.addJavascriptInterface(new MyJavaScriptInterface(), "Android");
+
+    public class MyJavaScriptInterface {
+        @JavascriptInterface
+        public void performAction(String data) {
+            // Handle data securely
+        }
+    }
+    ```
+
+file:
+  - extensions:
+      - all
+
+    matchers:
+      - type: word
+        words:
+          - ";->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V"

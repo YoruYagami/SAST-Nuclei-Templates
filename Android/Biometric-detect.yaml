@@ -1,0 +1,34 @@
+id: biometric-detect
+
+info:
+  name: Biometric or Fingerprint Permission Detection
+  author: YoruYagami
+  severity: info
+  description: |
+    This template detects the use of biometric or fingerprint permissions in Android applications. The permissions `android.permission.USE_FINGERPRINT` and `android.permission.USE_BIOMETRIC` are used to grant access to the device's fingerprint scanner or other biometric authentication methods. These permissions are typically included in the application's manifest file.
+
+    While the use of biometric authentication can enhance security by providing an additional layer of protection, it is crucial to ensure that the implementation follows best practices to avoid potential security flaws. Proper handling and storage of biometric data are essential to maintaining user privacy and security.
+  remediation: |
+    Ensure that biometric authentication is implemented following industry best practices. Consider the following recommendations:
+    
+    1. Use the latest Android biometric API to handle authentication.
+    2. Ensure that biometric data is not stored locally on the device and is handled securely.
+    3. Implement fallback mechanisms for users who cannot use biometric authentication.
+    4. Regularly update and review the security of the authentication process.
+
+    Example of adding biometric permissions in the manifest file:
+
+    ```xml
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    ```
+
+file:
+  - extensions:
+      - all
+
+    matchers:
+      - type: word
+        words:
+          - "android.permission.USE_FINGERPRINT"
+          - "android.permission.USE_BIOMETRIC"

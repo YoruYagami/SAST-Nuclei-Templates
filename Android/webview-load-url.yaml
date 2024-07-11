@@ -1,0 +1,23 @@
+id: webview-load-url
+
+info:
+  name: Webview loadUrl Usage
+  author: YoruYagami
+  severity: info
+  description: |
+    This template detects the use of the `loadUrl` method in WebView. Loading URLs directly in WebView can expose the application to security risks, especially if the URLs are not from trusted sources or are dynamically constructed.
+  remediation: |
+    Ensure that URLs loaded in WebView are from trusted sources and implement validation checks. Example:
+
+    ```java
+    webView.loadUrl("https://trusted.domain.com");
+    ```
+
+file:
+  - extensions:
+      - all
+
+    matchers:
+      - type: word
+        words:
+          - "Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V"

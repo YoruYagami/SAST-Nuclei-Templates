@@ -1,0 +1,32 @@
+id: insecure-provider-path
+
+info:
+  name: Insecure Provider Path
+  author: YoruYagami
+  severity: medium
+  description: |
+    This template detects insecure paths in `ContentProvider` definitions within the Android manifest file. Using a path like `path="."` or `path=""` can potentially expose the entire file system, leading to significant security risks.
+  remediation: |
+    Ensure that `ContentProvider` paths are properly defined and restrict access to specific directories or files. Example:
+
+    ```xml
+    <provider
+        android:name=".MyContentProvider"
+        android:authorities="com.example.myapp.provider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <path-permission
+            android:path="/secure"
+            android:readPermission="com.example.myapp.permission.READ_SECURE_DATA"/>
+    </provider>
+    ```
+
+file:
+  - extensions:
+      - all
+
+    matchers:
+      - type: regex
+        regex:
+          - "root-path name=\"[0-9A-Za-z\\-_]{1,10}\" path=\".\""
+          - "root-path name=\"[0-9A-Za-z\\-_]{1,10}\" path=\"\""

@@ -1,0 +1,29 @@
+id: webview-javascript-enabled
+
+info:
+  name: Webview JavaScript Enabled
+  author: YoruYagami
+  severity: info
+  description: |
+    This template detects the enabling of JavaScript in WebView through the `setJavaScriptEnabled` method. While JavaScript is necessary for many web applications, enabling it in WebView can expose the application to XSS attacks if not handled carefully.
+  remediation: |
+    If JavaScript is enabled in WebView, ensure that the loaded content is from a trusted source and implement security measures to prevent XSS attacks. Example:
+
+    ```java
+    webView.getSettings().setJavaScriptEnabled(true);
+    webView.setWebViewClient(new WebViewClient() {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            return Uri.parse(request.getUrl().toString()).getHost().equals("trusted.domain.com");
+        }
+    });
+    ```
+
+file:
+  - extensions:
+      - all
+
+    matchers:
+      - type: word
+        words:
+          - "Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V"
