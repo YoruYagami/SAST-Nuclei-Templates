@@ -1,0 +1,15 @@
+id: freshdesk-api-key
+
+info:
+  name: Freshdesk API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "^[a-zA-Z0-9]{40}$"

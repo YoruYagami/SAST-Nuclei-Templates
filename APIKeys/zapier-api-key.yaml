@@ -1,0 +1,15 @@
+id: zapier-api-key
+
+info:
+  name: Zapier API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "zapier_[a-f0-9]{32}"

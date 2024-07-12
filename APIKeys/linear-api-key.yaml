@@ -1,0 +1,15 @@
+id: linear-api-key
+
+info:
+  name: Linear API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "^lin_api_[a-f0-9]{64}$"

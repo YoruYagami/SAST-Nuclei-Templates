@@ -1,0 +1,15 @@
+id: heroku-api-key
+
+info:
+  name: Heroku API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "heroku_[0-9a-f]{32}"

@@ -1,0 +1,15 @@
+id: digitalocean-access-token
+
+info:
+  name: DigitalOcean Access Token
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "^do_[a-f0-9]{64}$"

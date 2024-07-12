@@ -1,0 +1,15 @@
+id: github-personal-access-token
+
+info:
+  name: GitHub Personal Access Token
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "ghp_[0-9a-zA-Z]{40}"

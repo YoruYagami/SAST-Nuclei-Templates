@@ -1,0 +1,15 @@
+id: box-api-key
+
+info:
+  name: Box API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "box_[a-f0-9]{32}"

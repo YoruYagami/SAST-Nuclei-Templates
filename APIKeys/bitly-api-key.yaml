@@ -1,0 +1,15 @@
+id: bitly-api-key
+
+info:
+  name: Bitly API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "bitly_[a-zA-Z0-9-_]{40}"

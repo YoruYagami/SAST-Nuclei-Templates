@@ -1,0 +1,15 @@
+id: algolia-api-key
+
+info:
+  name: Algolia API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "algolia_[a-f0-9]{32}"

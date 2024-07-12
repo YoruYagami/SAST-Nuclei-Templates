@@ -1,0 +1,15 @@
+id: pagerduty-api-key
+
+info:
+  name: PagerDuty API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "PBD[0-9a-f]{40}"

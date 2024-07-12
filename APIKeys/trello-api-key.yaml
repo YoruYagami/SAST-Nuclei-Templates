@@ -1,0 +1,15 @@
+id: trello-api-key
+
+info:
+  name: Trello API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "^[0-9a-f]{64}$"

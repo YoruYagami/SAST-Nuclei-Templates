@@ -1,0 +1,15 @@
+id: contentful-delivery-api-key
+
+info:
+  name: Contentful Delivery API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "CFPAT-[a-zA-Z0-9]{32}"

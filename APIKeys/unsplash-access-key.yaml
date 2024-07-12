@@ -1,0 +1,15 @@
+id: unsplash-access-key
+
+info:
+  name: Unsplash Access Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "unsplash_[a-zA-Z0-9-_]{40}"

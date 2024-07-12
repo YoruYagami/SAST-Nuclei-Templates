@@ -1,0 +1,15 @@
+id: newrelic-api-key
+
+info:
+  name: New Relic API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "NRAK-[a-f0-9]{64}"

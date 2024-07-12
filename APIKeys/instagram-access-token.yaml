@@ -1,0 +1,15 @@
+id: instagram-access-token
+
+info:
+  name: Instagram Access Token
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "IGQVJ[0-9A-Za-z]{21}"

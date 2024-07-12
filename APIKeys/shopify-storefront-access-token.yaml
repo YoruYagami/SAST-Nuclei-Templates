@@ -1,0 +1,15 @@
+id: shopify-storefront-access-token
+
+info:
+  name: Shopify Storefront Access Token
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "shpt_[a-zA-Z0-9-_]{32}"

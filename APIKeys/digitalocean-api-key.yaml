@@ -1,0 +1,15 @@
+id: digitalocean-api-key
+
+info:
+  name: DigitalOcean API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "do\\.[0-9a-f]{64}"

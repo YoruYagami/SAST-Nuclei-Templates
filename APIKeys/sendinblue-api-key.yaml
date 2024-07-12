@@ -1,0 +1,15 @@
+id: sendinblue-api-key
+
+info:
+  name: Sendinblue API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "xkeysib-[a-f0-9]{64}-[a-f0-9]{16}"

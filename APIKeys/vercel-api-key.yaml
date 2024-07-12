@@ -1,0 +1,15 @@
+id: vercel-api-key
+
+info:
+  name: Vercel API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "vercel_[a-zA-Z0-9-_]{40}"

@@ -1,0 +1,15 @@
+id: intercom-api-key
+
+info:
+  name: Intercom API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "dGhpcyBpcyBhbiBleGFtcGxlIHNlY3JldA=="

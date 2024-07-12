@@ -1,0 +1,16 @@
+id: mapbox-access-token
+
+info:
+  name: Mapbox Access Token
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "pk\\.[a-zA-Z0-9]{40}\\.[a-zA-Z0-9]{8}"
+          - "sk\\.[a-zA-Z0-9]{40}\\.[a-zA-Z0-9]{8}"

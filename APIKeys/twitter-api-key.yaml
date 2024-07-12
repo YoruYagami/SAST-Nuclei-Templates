@@ -1,0 +1,15 @@
+id: twitter-api-key
+
+info:
+  name: Twitter API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "AAAA[0-9A-Za-z]{28}"

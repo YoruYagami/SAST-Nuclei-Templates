@@ -1,0 +1,15 @@
+id: typeform-api-key
+
+info:
+  name: Typeform API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "tfp_[0-9a-f]{32}"

@@ -1,0 +1,15 @@
+id: circleci-api-key
+
+info:
+  name: CircleCI API Key
+  author: YoruYagami
+  severity: high
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "circleci_[a-f0-9]{40}"
