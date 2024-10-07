@@ -1,21 +1,13 @@
-id: android-debug-enabled
+id: debug-enabled
 
 info:
   name: Android Debug Enabled
   author: YoruYagami
   severity: low
   description: |
-    This template detects if the `android:debuggable` attribute is set to `true` in the Android manifest file. When an application is debuggable, it is easier for attackers to reverse engineer and exploit. This setting should be disabled in production releases.
+    This template detects if the Android application is marked as debuggable. Applications with `android:debuggable="true"` are susceptible to reverse engineering and runtime modifications, increasing the risk of exploitation.
   remediation: |
-    Ensure that the `android:debuggable` attribute is set to `false` or removed entirely in the production manifest file. Example:
-
-    ```xml
-    <application
-        android:debuggable="false"
-        ... >
-        ...
-    </application>
-    ```
+    Remove the `android:debuggable="true"` attribute from the `AndroidManifest.xml` file, or ensure it is set to `false` in production builds to prevent unauthorized debugging access.
 
 file:
   - extensions:

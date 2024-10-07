@@ -1,0 +1,20 @@
+id: firebase-database-detect
+
+info:
+  name: Firebase Database Usage Detection
+  author: YoruYagami
+  severity: info
+  description: |
+    This template detects the usage of Firebase database URLs within the application. Firebase databases are often used for real-time data storage and synchronization. Exposing these URLs without proper access controls can lead to unauthorized access, data leakage, or modifications to the database content. Developers should ensure that these URLs are secured with authentication and access rules.
+  remediation: |
+    Ensure that Firebase databases are secured with proper authentication and access controls. Use Firebase Rules to restrict access to authenticated users only. Avoid hardcoding Firebase URLs in the application code to prevent exposure and misuse.
+
+file:
+  - extensions:
+      - all
+
+    extractors:
+      - type: regex
+        regex:
+          - "[a-z0-9.-]+\\.firebaseio\\.com" # Detects Firebase Realtime Database URLs
+          - "[a-z0-9.-]+\\.firebaseapp\\.com" # Detects Firebase Hosting URLs
