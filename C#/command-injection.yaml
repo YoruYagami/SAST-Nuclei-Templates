@@ -1,0 +1,24 @@
+id: command-injection-extract
+
+info:
+  name: C# Command Injection via Process.Start (With Code Extraction)
+  author: YoruYagami
+  severity: high
+  description: Detects the use of Process.Start() with potential for command injection, and extracts the matching code snippet.
+  reference:
+    - https://cwe.mitre.org/data/definitions/78.html
+  classification:
+    cwe-id: CWE-78
+  tags: csharp,file
+
+file:
+  - extensions:
+      - all
+    matchers:
+      - type: regex
+        part: body
+        regex: '(Process\\.Start\\s*\\([^)]*\\))'
+    extractors:
+      - type: regex
+        group: 1
+        regex: '(Process\\.Start\\s*\\([^)]*\\))'

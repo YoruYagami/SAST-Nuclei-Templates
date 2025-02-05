@@ -1,0 +1,23 @@
+id: xxe
+
+info:
+  name: C# Insecure XML Parsing (XXE)
+  author: YoruYagami
+  severity: high
+  description: Detects XML parsing methods that may allow XXE if not configured securely (XmlReader, XmlDocument, XDocument).
+  remediation: Disable DTD processing or configure XmlReaderSettings properly to prevent XXE attacks.
+  reference:
+    - https://cwe.mitre.org/data/definitions/611.html
+  classification:
+    cwe-id: CWE-611
+  tags: csharp,file
+
+file:
+  - extensions:
+      - all
+    matchers:
+      - type: word
+        words:
+          - "XmlReader.Create("
+          - "XmlDocument.Load("
+          - "XDocument.Load("

@@ -1,0 +1,20 @@
+id: path-traversal
+
+info:
+  name: C# Path Traversal Detection
+  author: YoruYagami
+  severity: high
+  description: Detects possible path traversal by looking for suspicious file operations (Directory/File calls) with user input.
+  remediation: Validate or sanitize user input before using it to construct file paths.
+  reference:
+    - https://cwe.mitre.org/data/definitions/22.html
+  classification:
+    cwe-id: CWE-22
+  tags: csharp,file
+
+file:
+  - extensions:
+      - all
+    matchers:
+      - type: regex
+        regex: '(Directory|File)\\.(GetFiles|CreateDirectory|Delete|Exists|ReadAll|WriteAll)'
